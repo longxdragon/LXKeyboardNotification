@@ -330,6 +330,7 @@
 				C91A5C721BC37DE000178E76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -12,6 +12,8 @@
     UIView  *_superView;
     CGRect  _superOriginFrame;
     CGFloat _superViewTopMargin;
+    
+    BOOL _keyboardShown;
 }
 @end
 
@@ -55,6 +57,12 @@
         if (bottomY + keyboardSize.height > [UIScreen mainScreen].bounds.size.height) {
             CGFloat length = [UIScreen mainScreen].bounds.size.height - (bottomY + keyboardSize.height);
             
+            // 记录下移动前的初始位置，方便后面还原
+            if (!_keyboardShown) {
+                _keyboardShown = YES;
+                _superOriginFrame = _superView.frame;
+            }
+            
             [UIView animateWithDuration:duration animations:^{
                 CGRect frame = _superView.frame;
                 frame.origin.y = _superOriginFrame.origin.y + length;
@@ -65,11 +73,20 @@
 }
 
 - (void)keyboardHideNotify:(NSNotification *)notify {
+    // 键盘没有遮挡输入框
+    if (CGRectEqualToRect(_superOriginFrame, CGRectZero)) {
+        return;
+    }
+    
     NSDictionary *info = [notify userInfo];
     double duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     [UIView animateWithDuration:duration animations:^{
         _superView.frame = _superOriginFrame;
+    } completion:^(BOOL finished) {
+        // 还原
+        _keyboardShown = NO;
+        _superOriginFrame = CGRectZero;
     }];
 }
 
@@ -121,7 +138,6 @@
 - (void)addKeyboardNotificationForSuperView:(UIView *)view
                          superViewTopMargin:(CGFloat)topMargin {
     _superView = view;
-    _superOriginFrame = view.frame;
     _superViewTopMargin = topMargin;
 }
 

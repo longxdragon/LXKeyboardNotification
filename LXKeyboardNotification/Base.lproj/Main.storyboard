@@ -37,13 +37,19 @@
                                     <segue destination="NBY-zQ-reQ" kind="push" id="Hdb-mS-usu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-ZP-LjU">
+                                <rect key="frame" x="141" y="309" width="39" height="30"/>
+                                <state key="normal" title="demo"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yyL-5F-3cc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9hn-iU-xui"/>
+                            <constraint firstItem="lHi-ZP-LjU" firstAttribute="top" secondItem="I87-a4-kfg" secondAttribute="bottom" constant="34" id="DdJ-jP-ODl"/>
                             <constraint firstItem="yyL-5F-3cc" firstAttribute="top" secondItem="TVI-BC-rhB" secondAttribute="bottom" constant="32" id="MdE-on-8as"/>
                             <constraint firstItem="I87-a4-kfg" firstAttribute="top" secondItem="yyL-5F-3cc" secondAttribute="bottom" constant="35" id="NjT-iK-0t6"/>
                             <constraint firstItem="TVI-BC-rhB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T9n-eJ-wtG"/>
+                            <constraint firstItem="lHi-ZP-LjU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="agR-FC-83c"/>
                             <constraint firstItem="TVI-BC-rhB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="vZs-ZN-qPK"/>
                             <constraint firstItem="I87-a4-kfg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yHa-A4-Hut"/>
                         </constraints>
