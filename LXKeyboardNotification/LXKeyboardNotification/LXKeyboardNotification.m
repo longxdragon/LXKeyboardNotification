@@ -53,7 +53,7 @@
     
     UIView *firstResponderView = [self getFirstResponderAtView:_superView];
     if (firstResponderView) {
-        CGFloat bottomY = [self caculateAbsoluteBottomY:firstResponderView];
+        CGFloat bottomY = [self caculateAbsoluteBottomY:firstResponderView] + 20;
         if (bottomY + keyboardSize.height > [UIScreen mainScreen].bounds.size.height) {
             CGFloat length = [UIScreen mainScreen].bounds.size.height - (bottomY + keyboardSize.height);
             
